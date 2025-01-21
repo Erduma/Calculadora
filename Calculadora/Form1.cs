@@ -135,7 +135,11 @@ namespace Calculadora
         private void btC_Click(object sender, EventArgs e)
         {
 
-
+            txPantalla.Text = "";
+            simbol = "";
+            valor = "";
+            resultatActual = 0;
+            entrada = true;
         }
     }
 }
