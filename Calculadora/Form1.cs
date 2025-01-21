@@ -19,7 +19,7 @@ namespace Calculadora
         string aux;
         string valor;
         string simbol;
-        int resultatActual;
+        double resultatActual;
         bool entrada=true;
 
         private void bt1_Click(object sender, EventArgs e)
