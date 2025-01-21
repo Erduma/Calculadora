@@ -96,14 +96,35 @@ namespace Calculadora
                 resultatActual = resultatActual + int.Parse(valor);
                 valor = "";
             }
-            
+            else if (simbol == "-")
+            {
+                resultatActual = resultatActual - int.Parse(valor);
+                valor = "";
+            }
+
             simbol = "+";
         }
 
         private void btRestar_Click(object sender, EventArgs e)
         {
             txPantalla.Text = txPantalla.Text + "-";
-            aux = valor;
+            if (entrada == true)
+            {
+                resultatActual = int.Parse(valor);
+                entrada = false;
+                valor = "";
+            }
+            if (simbol == "+")
+            {
+                resultatActual = resultatActual + int.Parse(valor);
+                valor = "";
+            }
+            else if (simbol == "-")
+            {
+                resultatActual = resultatActual - int.Parse(valor);
+                valor = "";
+            }
+
             simbol = "-";
         }
 
@@ -126,6 +147,11 @@ namespace Calculadora
             if (simbol == "+")
             {
                 resultatActual = resultatActual + int.Parse(valor);
+                valor = "";
+            }
+            else if (simbol == "-")
+            {
+                resultatActual = resultatActual - int.Parse(valor);
                 valor = "";
             }
             simbol = "";
