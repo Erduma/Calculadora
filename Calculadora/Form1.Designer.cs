@@ -71,7 +71,7 @@
             this.txPantalla.Location = new System.Drawing.Point(210, 26);
             this.txPantalla.Margin = new System.Windows.Forms.Padding(6);
             this.txPantalla.Name = "txPantalla";
-            this.txPantalla.Size = new System.Drawing.Size(312, 31);
+            this.txPantalla.Size = new System.Drawing.Size(312, 37);
             this.txPantalla.TabIndex = 1;
             // 
             // btElevat
@@ -345,7 +345,7 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(682, 633);
             this.Controls.Add(this.btCanviSigne);
@@ -374,9 +374,11 @@
             this.Controls.Add(this.txPantalla);
             this.Controls.Add(this.bt100);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form1";
             this.Text = "%";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

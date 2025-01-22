@@ -15,6 +15,9 @@ namespace Calculadora
         public Form1()
         {
             InitializeComponent();
+            this.KeyDown += new KeyEventHandler(Form1_KeyDown);
+            this.KeyPress += new KeyPressEventHandler(Form1_KeyPress);
+            this.KeyPreview = true;
         }
         string aux;
         string valor;
@@ -22,6 +25,8 @@ namespace Calculadora
         double resultatActual;
         bool entrada=true;
 
+
+        //NUMEROS
         private void bt1_Click(object sender, EventArgs e)
         {
             txPantalla.Text = txPantalla.Text + "1";
@@ -81,6 +86,221 @@ namespace Calculadora
             txPantalla.Text = txPantalla.Text + "0";
             valor = valor + 0;
         }
+
+        //TECLAT
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //NUMPAD
+            if (e.KeyChar == '1')
+            {
+                txPantalla.Text = txPantalla.Text + "1";
+                valor = valor + 1;
+            }
+            else if (e.KeyChar == '2')
+            {
+                txPantalla.Text = txPantalla.Text + "2";
+                valor = valor + 2;
+            }
+            else if (e.KeyChar == '3')
+            {
+                txPantalla.Text = txPantalla.Text + "3";
+                valor = valor + 3;
+            }
+            else if (e.KeyChar == '4')
+            {
+                txPantalla.Text = txPantalla.Text + "4";
+                valor = valor + 4;
+            }
+            else if (e.KeyChar == '5')
+            {
+                txPantalla.Text = txPantalla.Text + "5";
+                valor = valor + 5;
+            }
+            else if (e.KeyChar == '6')
+            {
+                txPantalla.Text = txPantalla.Text + "6";
+                valor = valor + 6;
+            }
+            else if (e.KeyChar == '7')
+            {
+                txPantalla.Text = txPantalla.Text + "7";
+                valor = valor + 7;
+            }
+            else if (e.KeyChar == '8')
+            {
+                txPantalla.Text = txPantalla.Text + "8";
+                valor = valor + 8;
+            }
+            else if (e.KeyChar == '9')
+            {
+                txPantalla.Text = txPantalla.Text + "9";
+                valor = valor + 9;
+            }
+            else if (e.KeyChar == '0')
+            {
+                txPantalla.Text = txPantalla.Text + "0";
+                valor = valor + 0;
+            }
+
+
+
+            //TECLAT SIMBOLS
+            else if (e.KeyChar == '+')
+            {
+                txPantalla.Text = txPantalla.Text + "+";
+                if (entrada == true)
+                {
+                    resultatActual = int.Parse(valor);
+                    entrada = false;
+                    valor = "";
+                }
+                if (simbol == "+")
+                {
+                    resultatActual = resultatActual + int.Parse(valor);
+                    valor = "";
+                }
+                else if (simbol == "-")
+                {
+                    resultatActual = resultatActual - int.Parse(valor);
+                    valor = "";
+                }
+                else if (simbol == "x")
+                {
+                    resultatActual = resultatActual * int.Parse(valor);
+                    valor = "";
+                }
+                else if (simbol == "/")
+                {
+                    resultatActual = resultatActual / int.Parse(valor);
+                    valor = "";
+                }
+
+                simbol = "+";
+            }
+            else if (e.KeyChar == '-')
+            {
+                txPantalla.Text = txPantalla.Text + "-";
+                if (entrada == true)
+                {
+                    resultatActual = int.Parse(valor);
+                    entrada = false;
+                    valor = "";
+                }
+                if (simbol == "+")
+                {
+                    resultatActual = resultatActual + int.Parse(valor);
+                    valor = "";
+                }
+                else if (simbol == "-")
+                {
+                    resultatActual = resultatActual - int.Parse(valor);
+                    valor = "";
+                }
+                else if (simbol == "x")
+                {
+                    resultatActual = resultatActual * int.Parse(valor);
+                    valor = "";
+                }
+                else if (simbol == "/")
+                {
+                    resultatActual = resultatActual / int.Parse(valor);
+                    valor = "";
+                }
+
+                simbol = "-";
+            }
+            else if (e.KeyChar == '*')
+            {
+                txPantalla.Text = txPantalla.Text + "x";
+                if (entrada == true)
+                {
+                    resultatActual = int.Parse(valor);
+                    entrada = false;
+                    valor = "";
+                }
+                if (simbol == "+")
+                {
+                    resultatActual = resultatActual + int.Parse(valor);
+                    valor = "";
+                }
+                else if (simbol == "-")
+                {
+                    resultatActual = resultatActual - int.Parse(valor);
+                    valor = "";
+                }
+                else if (simbol == "x")
+                {
+                    resultatActual = resultatActual * int.Parse(valor);
+                    valor = "";
+                }
+                else if (simbol == "/")
+                {
+                    resultatActual = resultatActual / int.Parse(valor);
+                    valor = "";
+                }
+
+                simbol = "x";
+            }
+            else if (e.KeyChar == '/')
+            {
+                txPantalla.Text = txPantalla.Text + "/";
+                if (entrada == true)
+                {
+                    resultatActual = int.Parse(valor);
+                    entrada = false;
+                    valor = "";
+                }
+                if (simbol == "+")
+                {
+                    resultatActual = resultatActual + int.Parse(valor);
+                    valor = "";
+                }
+                else if (simbol == "-")
+                {
+                    resultatActual = resultatActual - int.Parse(valor);
+                    valor = "";
+                }
+                else if (simbol == "x")
+                {
+                    resultatActual = resultatActual * int.Parse(valor);
+                    valor = "";
+                }
+                else if (simbol == "/")
+                {
+                    resultatActual = resultatActual / int.Parse(valor);
+                    valor = "";
+                }
+                simbol = "/";
+            }
+            else if (e.KeyChar == '=')
+            {
+                if (simbol == "+")
+                {
+                    resultatActual = resultatActual + int.Parse(valor);
+                    valor = "";
+                }
+                else if (simbol == "-")
+                {
+                    resultatActual = resultatActual - int.Parse(valor);
+                    valor = "";
+                }
+                else if (simbol == "x")
+                {
+                    resultatActual = resultatActual * int.Parse(valor);
+                    valor = "";
+                }
+                else if (simbol == "/")
+                {
+                    resultatActual = resultatActual / int.Parse(valor);
+                    valor = "";
+                }
+                simbol = "";
+                txPantalla.Text = txPantalla.Text + "=" + resultatActual;
+            }
+            
+        }
+
+        //SIMBOLS
 
         private void btMes_Click(object sender, EventArgs e)
         {
@@ -247,6 +467,35 @@ namespace Calculadora
             valor = "";
             resultatActual = 0;
             entrada = true;
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (simbol == "+")
+                {
+                    resultatActual = resultatActual + int.Parse(valor);
+                    valor = "";
+                }
+                else if (simbol == "-")
+                {
+                    resultatActual = resultatActual - int.Parse(valor);
+                    valor = "";
+                }
+                else if (simbol == "x")
+                {
+                    resultatActual = resultatActual * int.Parse(valor);
+                    valor = "";
+                }
+                else if (simbol == "/")
+                {
+                    resultatActual = resultatActual / int.Parse(valor);
+                    valor = "";
+                }
+                simbol = "";
+                txPantalla.Text = txPantalla.Text + "=" + resultatActual;
+            }
         }
     }
 }
