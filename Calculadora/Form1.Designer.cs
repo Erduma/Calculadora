@@ -62,6 +62,7 @@
             this.bt100.TabStop = false;
             this.bt100.Text = "%";
             this.bt100.UseVisualStyleBackColor = true;
+            this.bt100.Click += new System.EventHandler(this.bt100_Click);
             // 
             // txPantalla
             // 

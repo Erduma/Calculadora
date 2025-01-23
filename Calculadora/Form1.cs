@@ -530,5 +530,33 @@ namespace Calculadora
             resultatActual = (-resultatActual);
             txPantalla.Text = txPantalla.Text + "=" + resultatActual;
         }
+
+        private void bt100_Click(object sender, EventArgs e)
+        {
+            this.ActiveControl = null;
+            if (simbol == "+")
+            {
+                resultatActual = resultatActual + double.Parse(valor);
+                valor = "";
+            }
+            else if (simbol == "-")
+            {
+                resultatActual = resultatActual - double.Parse(valor);
+                valor = "";
+            }
+            else if (simbol == "x")
+            {
+                resultatActual = resultatActual * double.Parse(valor);
+                valor = "";
+            }
+            else if (simbol == "/")
+            {
+                resultatActual = resultatActual / double.Parse(valor);
+                valor = "";
+            }
+            simbol = "";
+            resultatActual = resultatActual/100;
+            txPantalla.Text = txPantalla.Text + "=" + resultatActual;
+        }
     }
 }
