@@ -16,7 +16,6 @@ namespace Calculadora
         {
             InitializeComponent();
             this.KeyPress += new KeyPressEventHandler(Form1_KeyPress);
-            this.KeyPreview = true;
         }
         string aux;
         string valor;
@@ -85,6 +84,13 @@ namespace Calculadora
             txPantalla.Text = txPantalla.Text + "0";
             valor = valor + 0;
         }
+
+
+
+
+
+
+
 
         //TECLAT
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
@@ -271,32 +277,6 @@ namespace Calculadora
                 }
                 simbol = "/";
             }
-            else if (e.KeyChar == '=')
-            {
-                if (simbol == "+")
-                {
-                    resultatActual = resultatActual + int.Parse(valor);
-                    valor = "";
-                }
-                else if (simbol == "-")
-                {
-                    resultatActual = resultatActual - int.Parse(valor);
-                    valor = "";
-                }
-                else if (simbol == "x")
-                {
-                    resultatActual = resultatActual * int.Parse(valor);
-                    valor = "";
-                }
-                else if (simbol == "/")
-                {
-                    resultatActual = resultatActual / int.Parse(valor);
-                    valor = "";
-                }
-                simbol = "";
-                txPantalla.Text = txPantalla.Text + "=" + resultatActual;
-            }
-            
         }
 
         //SIMBOLS
@@ -432,6 +412,13 @@ namespace Calculadora
             simbol = "/";
         }
 
+
+
+
+
+
+        //SIMBOL IGUAL
+
         private void btIgual_Click(object sender, EventArgs e)
         {
             if (simbol == "+")
@@ -457,17 +444,7 @@ namespace Calculadora
             simbol = "";
             txPantalla.Text = txPantalla.Text + "=" + resultatActual;
         }
-
-        private void btC_Click(object sender, EventArgs e)
-        {
-
-            txPantalla.Text = "";
-            simbol = "";
-            valor = "";
-            resultatActual = 0;
-            entrada = true;
-        }
-
+   
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -496,5 +473,23 @@ namespace Calculadora
                 txPantalla.Text = txPantalla.Text + "=" + resultatActual;
             }
         }
+
+
+
+
+
+        //NATEJAR PANTALLA
+
+        private void btC_Click(object sender, EventArgs e)
+        {
+
+            txPantalla.Text = "";
+            simbol = "";
+            valor = "";
+            resultatActual = 0;
+            entrada = true;
+        }
+
+        
     }
 }
