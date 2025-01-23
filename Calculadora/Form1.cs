@@ -15,7 +15,6 @@ namespace Calculadora
         public Form1()
         {
             InitializeComponent();
-            this.KeyDown += new KeyEventHandler(Form1_KeyDown);
             this.KeyPress += new KeyPressEventHandler(Form1_KeyPress);
             this.KeyPreview = true;
         }
