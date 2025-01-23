@@ -35,54 +35,63 @@ namespace Calculadora
 
         private void bt2_Click(object sender, EventArgs e)
         {
+            this.ActiveControl = null;
             txPantalla.Text = txPantalla.Text + "2";
             valor = valor + 2;
         }
 
         private void bt3_Click(object sender, EventArgs e)
         {
+            this.ActiveControl = null;
             txPantalla.Text = txPantalla.Text + "3";
             valor = valor + 3;
         }
 
         private void bt4_Click(object sender, EventArgs e)
         {
+            this.ActiveControl = null;
             txPantalla.Text = txPantalla.Text + "4";
             valor = valor + 4;
         }
 
         private void bt5_Click(object sender, EventArgs e)
         {
+            this.ActiveControl = null;
             txPantalla.Text = txPantalla.Text + "5";
             valor = valor + 5;
         }
 
         private void bt6_Click(object sender, EventArgs e)
         {
+            this.ActiveControl = null;
             txPantalla.Text = txPantalla.Text + "6";
             valor = valor + 6;
         }
 
         private void bt7_Click(object sender, EventArgs e)
         {
+            this.ActiveControl = null;
             txPantalla.Text = txPantalla.Text + "7";
             valor = valor + 7;
         }
 
         private void bt8_Click(object sender, EventArgs e)
         {
+            this.ActiveControl = null;
             txPantalla.Text = txPantalla.Text + "8";
             valor = valor + 8;
         }
 
         private void bt9_Click(object sender, EventArgs e)
         {
+            this.ActiveControl = null;
             txPantalla.Text = txPantalla.Text + "9";
             valor = valor + 9;
         }
 
         private void bt0_Click(object sender, EventArgs e)
         {
+            this.ActiveControl = null;
             txPantalla.Text = txPantalla.Text + "0";
             valor = valor + 0;
         }
@@ -163,22 +172,22 @@ namespace Calculadora
                 }
                 if (simbol == "+")
                 {
-                    resultatActual = resultatActual + int.Parse(valor);
+                    resultatActual = resultatActual + double.Parse(valor);
                     valor = "";
                 }
                 else if (simbol == "-")
                 {
-                    resultatActual = resultatActual - int.Parse(valor);
+                    resultatActual = resultatActual - double.Parse(valor);
                     valor = "";
                 }
                 else if (simbol == "x")
                 {
-                    resultatActual = resultatActual * int.Parse(valor);
+                    resultatActual = resultatActual * double.Parse(valor);
                     valor = "";
                 }
                 else if (simbol == "/")
                 {
-                    resultatActual = resultatActual / int.Parse(valor);
+                    resultatActual = resultatActual / double.Parse(valor);
                     valor = "";
                 }
 
@@ -189,28 +198,28 @@ namespace Calculadora
                 txPantalla.Text = txPantalla.Text + "-";
                 if (entrada == true)
                 {
-                    resultatActual = int.Parse(valor);
+                    resultatActual = double.Parse(valor);
                     entrada = false;
                     valor = "";
                 }
                 if (simbol == "+")
                 {
-                    resultatActual = resultatActual + int.Parse(valor);
+                    resultatActual = resultatActual + double.Parse(valor);
                     valor = "";
                 }
                 else if (simbol == "-")
                 {
-                    resultatActual = resultatActual - int.Parse(valor);
+                    resultatActual = resultatActual - double.Parse(valor);
                     valor = "";
                 }
                 else if (simbol == "x")
                 {
-                    resultatActual = resultatActual * int.Parse(valor);
+                    resultatActual = resultatActual * double.Parse(valor);
                     valor = "";
                 }
                 else if (simbol == "/")
                 {
-                    resultatActual = resultatActual / int.Parse(valor);
+                    resultatActual = resultatActual / double.Parse(valor);
                     valor = "";
                 }
 
@@ -221,28 +230,28 @@ namespace Calculadora
                 txPantalla.Text = txPantalla.Text + "x";
                 if (entrada == true)
                 {
-                    resultatActual = int.Parse(valor);
+                    resultatActual = double.Parse(valor);
                     entrada = false;
                     valor = "";
                 }
                 if (simbol == "+")
                 {
-                    resultatActual = resultatActual + int.Parse(valor);
+                    resultatActual = resultatActual + double.Parse(valor);
                     valor = "";
                 }
                 else if (simbol == "-")
                 {
-                    resultatActual = resultatActual - int.Parse(valor);
+                    resultatActual = resultatActual - double.Parse(valor);
                     valor = "";
                 }
                 else if (simbol == "x")
                 {
-                    resultatActual = resultatActual * int.Parse(valor);
+                    resultatActual = resultatActual * double.Parse(valor);
                     valor = "";
                 }
                 else if (simbol == "/")
                 {
-                    resultatActual = resultatActual / int.Parse(valor);
+                    resultatActual = resultatActual / double.Parse(valor);
                     valor = "";
                 }
 
@@ -253,28 +262,28 @@ namespace Calculadora
                 txPantalla.Text = txPantalla.Text + "/";
                 if (entrada == true)
                 {
-                    resultatActual = int.Parse(valor);
+                    resultatActual = double.Parse(valor);
                     entrada = false;
                     valor = "";
                 }
                 if (simbol == "+")
                 {
-                    resultatActual = resultatActual + int.Parse(valor);
+                    resultatActual = resultatActual + double.Parse(valor);
                     valor = "";
                 }
                 else if (simbol == "-")
                 {
-                    resultatActual = resultatActual - int.Parse(valor);
+                    resultatActual = resultatActual - double.Parse(valor);
                     valor = "";
                 }
                 else if (simbol == "x")
                 {
-                    resultatActual = resultatActual * int.Parse(valor);
+                    resultatActual = resultatActual * double.Parse(valor);
                     valor = "";
                 }
                 else if (simbol == "/")
                 {
-                    resultatActual = resultatActual / int.Parse(valor);
+                    resultatActual = resultatActual / double.Parse(valor);
                     valor = "";
                 }
                 simbol = "/";
@@ -285,6 +294,7 @@ namespace Calculadora
 
         private void btMes_Click(object sender, EventArgs e)
         {
+            this.ActiveControl = null;
             txPantalla.Text = txPantalla.Text + "+";
             if (entrada == true)
             {
@@ -294,22 +304,22 @@ namespace Calculadora
             }
             if (simbol == "+")
             {
-                resultatActual = resultatActual + int.Parse(valor);
+                resultatActual = resultatActual + double.Parse(valor);
                 valor = "";
             }
             else if (simbol == "-")
             {
-                resultatActual = resultatActual - int.Parse(valor);
+                resultatActual = resultatActual - double.Parse(valor);
                 valor = "";
             }
             else if (simbol == "x")
             {
-                resultatActual = resultatActual * int.Parse(valor);
+                resultatActual = resultatActual * double.Parse(valor);
                 valor = "";
             }
             else if (simbol == "/")
             {
-                resultatActual = resultatActual / int.Parse(valor);
+                resultatActual = resultatActual / double.Parse(valor);
                 valor = "";
             }
 
@@ -318,31 +328,32 @@ namespace Calculadora
 
         private void btRestar_Click(object sender, EventArgs e)
         {
+            this.ActiveControl = null;
             txPantalla.Text = txPantalla.Text + "-";
             if (entrada == true)
             {
-                resultatActual = int.Parse(valor);
+                resultatActual = double.Parse(valor);
                 entrada = false;
                 valor = "";
             }
             if (simbol == "+")
             {
-                resultatActual = resultatActual + int.Parse(valor);
+                resultatActual = resultatActual + double.Parse(valor);
                 valor = "";
             }
             else if (simbol == "-")
             {
-                resultatActual = resultatActual - int.Parse(valor);
+                resultatActual = resultatActual - double.Parse(valor);
                 valor = "";
             }
             else if (simbol == "x")
             {
-                resultatActual = resultatActual * int.Parse(valor);
+                resultatActual = resultatActual * double.Parse(valor);
                 valor = "";
             }
             else if (simbol == "/")
             {
-                resultatActual = resultatActual / int.Parse(valor);
+                resultatActual = resultatActual / double.Parse(valor);
                 valor = "";
             }
 
@@ -351,31 +362,32 @@ namespace Calculadora
 
         private void btMultiplicar_Click(object sender, EventArgs e)
         {
+            this.ActiveControl = null;
             txPantalla.Text = txPantalla.Text + "x";
             if (entrada == true)
             {
-                resultatActual = int.Parse(valor);
+                resultatActual = double.Parse(valor);
                 entrada = false;
                 valor = "";
             }
             if (simbol == "+")
             {
-                resultatActual = resultatActual + int.Parse(valor);
+                resultatActual = resultatActual + double.Parse(valor);
                 valor = "";
             }
             else if (simbol == "-")
             {
-                resultatActual = resultatActual - int.Parse(valor);
+                resultatActual = resultatActual - double.Parse(valor);
                 valor = "";
             }
             else if (simbol == "x")
             {
-                resultatActual = resultatActual * int.Parse(valor);
+                resultatActual = resultatActual * double.Parse(valor);
                 valor = "";
             }
             else if (simbol == "/")
             {
-                resultatActual = resultatActual / int.Parse(valor);
+                resultatActual = resultatActual / double.Parse(valor);
                 valor = "";
             }
 
@@ -384,31 +396,32 @@ namespace Calculadora
 
         private void btDividir_Click(object sender, EventArgs e)
         {
+            this.ActiveControl = null;
             txPantalla.Text = txPantalla.Text + "/";
             if (entrada == true)
             {
-                resultatActual = int.Parse(valor);
+                resultatActual = double.Parse(valor);
                 entrada = false;
                 valor = "";
             }
             if (simbol == "+")
             {
-                resultatActual = resultatActual + int.Parse(valor);
+                resultatActual = resultatActual + double.Parse(valor);
                 valor = "";
             }
             else if (simbol == "-")
             {
-                resultatActual = resultatActual - int.Parse(valor);
+                resultatActual = resultatActual - double.Parse(valor);
                 valor = "";
             }
             else if (simbol == "x")
             {
-                resultatActual = resultatActual * int.Parse(valor);
+                resultatActual = resultatActual * double.Parse(valor);
                 valor = "";
             }
             else if (simbol == "/")
             {
-                resultatActual = resultatActual / int.Parse(valor);
+                resultatActual = resultatActual / double.Parse(valor);
                 valor = "";
             }
             simbol = "/";
@@ -423,24 +436,30 @@ namespace Calculadora
 
         private void btIgual_Click(object sender, EventArgs e)
         {
+            this.ActiveControl = null;
             if (simbol == "+")
             {
-                resultatActual = resultatActual + int.Parse(valor);
+                resultatActual = resultatActual + double.Parse(valor);
                 valor = "";
             }
             else if (simbol == "-")
             {
-                resultatActual = resultatActual - int.Parse(valor);
+                resultatActual = resultatActual - double.Parse(valor);
                 valor = "";
             }
             else if (simbol == "x")
             {
-                resultatActual = resultatActual * int.Parse(valor);
+                resultatActual = resultatActual * double.Parse(valor);
                 valor = "";
             }
             else if (simbol == "/")
             {
-                resultatActual = resultatActual / int.Parse(valor);
+                resultatActual = resultatActual / double.Parse(valor);
+                valor = "";
+            }
+            else
+            {
+                resultatActual = double.Parse(valor);
                 valor = "";
             }
             simbol = "";
@@ -449,7 +468,7 @@ namespace Calculadora
    
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            // Interceptar la tecla Enter per evitar l'execució automàtica del botó amb focus
+            // doubleerceptar la tecla Enter per evitar l'execució automàtica del botó amb focus
             if (e.KeyCode == Keys.Enter)
             {
                 e.Handled = true; // Evita que el botó amb focus rebi l'esdeveniment
@@ -469,7 +488,7 @@ namespace Calculadora
 
         private void btC_Click(object sender, EventArgs e)
         {
-
+            this.ActiveControl = null;
             txPantalla.Text = "";
             simbol = "";
             valor = "";
@@ -479,8 +498,37 @@ namespace Calculadora
 
         private void btComa_Click(object sender, EventArgs e)
         {
+            this.ActiveControl = null;
             txPantalla.Text = txPantalla.Text + ",";
             valor = valor + ",";
+        }
+
+        private void btCanviSigne_Click(object sender, EventArgs e)
+        {
+            this.ActiveControl = null;
+            if (simbol == "+")
+            {
+                resultatActual = resultatActual + double.Parse(valor);
+                valor = "";
+            }
+            else if (simbol == "-")
+            {
+                resultatActual = resultatActual - double.Parse(valor);
+                valor = "";
+            }
+            else if (simbol == "x")
+            {
+                resultatActual = resultatActual * double.Parse(valor);
+                valor = "";
+            }
+            else if (simbol == "/")
+            {
+                resultatActual = resultatActual / double.Parse(valor);
+                valor = "";
+            }
+            simbol = "";
+            resultatActual = (-resultatActual);
+            txPantalla.Text = txPantalla.Text + "=" + resultatActual;
         }
     }
 }

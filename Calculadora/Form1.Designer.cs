@@ -316,6 +316,7 @@
             this.btCanviSigne.TabStop = false;
             this.btCanviSigne.Text = "+/-";
             this.btCanviSigne.UseVisualStyleBackColor = true;
+            this.btCanviSigne.Click += new System.EventHandler(this.btCanviSigne_Click);
             // 
             // Form1
             // 
