@@ -14,7 +14,8 @@ namespace Calculadora
     {
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            this.KeyPreview = true; // Permet que el formulari gestioni les tecles abans dels controls
             this.KeyPress += new KeyPressEventHandler(Form1_KeyPress);
         }
         string aux;
@@ -27,6 +28,7 @@ namespace Calculadora
         //NUMEROS
         private void bt1_Click(object sender, EventArgs e)
         {
+            this.ActiveControl = null;
             txPantalla.Text = txPantalla.Text + "1";
             valor = valor + 1;
         }
@@ -155,7 +157,7 @@ namespace Calculadora
                 txPantalla.Text = txPantalla.Text + "+";
                 if (entrada == true)
                 {
-                    resultatActual = int.Parse(valor);
+                    resultatActual = double.Parse(valor);
                     entrada = false;
                     valor = "";
                 }
@@ -286,7 +288,7 @@ namespace Calculadora
             txPantalla.Text = txPantalla.Text + "+";
             if (entrada == true)
             {
-                resultatActual = int.Parse(valor);
+                resultatActual = double.Parse(valor);
                 entrada = false;
                 valor = "";
             }
@@ -447,30 +449,15 @@ namespace Calculadora
    
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+            // Interceptar la tecla Enter per evitar l'execució automàtica del botó amb focus
             if (e.KeyCode == Keys.Enter)
             {
-                if (simbol == "+")
-                {
-                    resultatActual = resultatActual + int.Parse(valor);
-                    valor = "";
-                }
-                else if (simbol == "-")
-                {
-                    resultatActual = resultatActual - int.Parse(valor);
-                    valor = "";
-                }
-                else if (simbol == "x")
-                {
-                    resultatActual = resultatActual * int.Parse(valor);
-                    valor = "";
-                }
-                else if (simbol == "/")
-                {
-                    resultatActual = resultatActual / int.Parse(valor);
-                    valor = "";
-                }
-                simbol = "";
-                txPantalla.Text = txPantalla.Text + "=" + resultatActual;
+                e.Handled = true; // Evita que el botó amb focus rebi l'esdeveniment
+                e.SuppressKeyPress = true; // Evita el so del sistema
+
+                // Opcional: pots afegir aquí el comportament personalitzat per a Enter
+                // Per exemple, executar el codi del botó igual
+                btIgual_Click(null, null);
             }
         }
 
@@ -490,6 +477,10 @@ namespace Calculadora
             entrada = true;
         }
 
-        
+        private void btComa_Click(object sender, EventArgs e)
+        {
+            txPantalla.Text = txPantalla.Text + ",";
+            valor = valor + ",";
+        }
     }
 }
