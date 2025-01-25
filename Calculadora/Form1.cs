@@ -249,8 +249,6 @@ namespace Calculadora
         {
             this.ActiveControl = null;
             txPantalla.Text = "";
-            simbol = "";
-            valor = "";
             resultatActual = 0;
         }
 
@@ -263,57 +261,86 @@ namespace Calculadora
         private void btCanviSigne_Click(object sender, EventArgs e)
         {
             this.ActiveControl = null;
-            if (simbol == "+")
+            
+            string expressio = txPantalla.Text;
+
+            // Comprova si el TextBox està buit
+            if (expressio == "")
             {
-                resultatActual = resultatActual + double.Parse(valor);
-                valor = "";
+                MessageBox.Show("Has de posar la operació");
             }
-            else if (simbol == "-")
+            else
             {
-                resultatActual = resultatActual - double.Parse(valor);
-                valor = "";
+                try
+                {
+                    // Divideix el text en parts separades per operadors matemàtics
+                    char[ ] operadors = { '+', '-', '*', '/', 'x' };
+                    string[ ] parts = expressio.Split(operadors);
+
+                    // Obté l'última part (últim número)
+                    string ultimValor = parts[ parts.Length - 1 ];
+
+                    // Comprova si l'últim valor és vàlid
+                    if (string.IsNullOrWhiteSpace(ultimValor))
+                    {
+                        MessageBox.Show("No s'ha trobat cap número vàlid per canviar el signe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    // Identifica la posició de l'últim número al text original
+                    int posicioUltimValor = expressio.LastIndexOf(ultimValor);
+
+                    // Canvia el signe del número
+                    if (ultimValor.StartsWith("-"))
+                    {
+                        // Si és negatiu, elimina el signe menys
+                        ultimValor = ultimValor.Substring(1);
+                    }
+                    else
+                    {
+                        // Si és positiu, afegeix el signe menys
+                        ultimValor = "-" + ultimValor;
+                    }
+
+                    // Substitueix l'últim valor al TextBox
+                    expressio = expressio.Substring(0, posicioUltimValor) + ultimValor;
+                    txPantalla.Text = expressio;
+                }
+                catch (Exception ex)
+                {
+                    // En cas d'error, mostra un missatge informatiu
+                    MessageBox.Show("Error al canviar el signe: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else if (simbol == "x")
-            {
-                resultatActual = resultatActual * double.Parse(valor);
-                valor = "";
-            }
-            else if (simbol == "/")
-            {
-                resultatActual = resultatActual / double.Parse(valor);
-                valor = "";
-            }
-            simbol = "";
-            resultatActual = (-resultatActual);
-            txPantalla.Text = txPantalla.Text + "=" + resultatActual;
+
         }
 
         private void bt100_Click(object sender, EventArgs e)
         {
             this.ActiveControl = null;
-            if (simbol == "+")
-            {
-                resultatActual = resultatActual + double.Parse(valor);
-                valor = "";
-            }
-            else if (simbol == "-")
-            {
-                resultatActual = resultatActual - double.Parse(valor);
-                valor = "";
-            }
-            else if (simbol == "x")
-            {
-                resultatActual = resultatActual * double.Parse(valor);
-                valor = "";
-            }
-            else if (simbol == "/")
-            {
-                resultatActual = resultatActual / double.Parse(valor);
-                valor = "";
-            }
-            simbol = "";
-            resultatActual = resultatActual/100;
-            txPantalla.Text = txPantalla.Text + "=" + resultatActual;
+            //if (simbol == "+")
+            //{
+            //    resultatActual = resultatActual + double.Parse(valor);
+            //    valor = "";
+            //}
+            //else if (simbol == "-")
+            //{
+            //    resultatActual = resultatActual - double.Parse(valor);
+            //    valor = "";
+            //}
+            //else if (simbol == "x")
+            //{
+            //    resultatActual = resultatActual * double.Parse(valor);
+            //    valor = "";
+            //}
+            //else if (simbol == "/")
+            //{
+            //    resultatActual = resultatActual / double.Parse(valor);
+            //    valor = "";
+            //}
+            //simbol = "";
+            //resultatActual = resultatActual/100;
+            //txPantalla.Text = txPantalla.Text + "=" + resultatActual;
         }
     }
 }
