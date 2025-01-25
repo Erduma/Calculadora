@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Calculadora
 {
@@ -261,8 +262,9 @@ namespace Calculadora
         private void btCanviSigne_Click(object sender, EventArgs e)
         {
             this.ActiveControl = null;
-            
+
             string expressio = txPantalla.Text;
+            string signe;
 
             // Comprova si el TextBox està buit
             if (expressio == "")
@@ -290,20 +292,22 @@ namespace Calculadora
                     // Identifica la posició de l'últim número al text original
                     int posicioUltimValor = expressio.LastIndexOf(ultimValor);
 
+                    signe = expressio[ posicioUltimValor - 1 ].ToString(); // Accedeix al caràcter de la posició 3 (quart caràcter)
+
                     // Canvia el signe del número
-                    if (ultimValor.StartsWith("-"))
+                    if (signe == "-")
                     {
                         // Si és negatiu, elimina el signe menys
-                        ultimValor = ultimValor.Substring(1);
+                        signe = "+";
                     }
-                    else
+                    else if(signe == "+")
                     {
-                        // Si és positiu, afegeix el signe menys
-                        ultimValor = "-" + ultimValor;
+                        // Si és negatiu, elimina el signe menys
+                        signe = "-";
                     }
 
                     // Substitueix l'últim valor al TextBox
-                    expressio = expressio.Substring(0, posicioUltimValor) + ultimValor;
+                    expressio = expressio.Substring(0, posicioUltimValor-1) + signe + ultimValor;
                     txPantalla.Text = expressio;
                 }
                 catch (Exception ex)
