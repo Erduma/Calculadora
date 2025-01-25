@@ -49,12 +49,13 @@
             this.btComa = new System.Windows.Forms.Button();
             this.btIgual = new System.Windows.Forms.Button();
             this.btCanviSigne = new System.Windows.Forms.Button();
+            this.txHistorial = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // bt100
             // 
             this.bt100.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt100.Location = new System.Drawing.Point(210, 76);
+            this.bt100.Location = new System.Drawing.Point(16, 76);
             this.bt100.Margin = new System.Windows.Forms.Padding(6);
             this.bt100.Name = "bt100";
             this.bt100.Size = new System.Drawing.Size(70, 75);
@@ -66,7 +67,7 @@
             // 
             // txPantalla
             // 
-            this.txPantalla.Location = new System.Drawing.Point(210, 26);
+            this.txPantalla.Location = new System.Drawing.Point(16, 26);
             this.txPantalla.Margin = new System.Windows.Forms.Padding(6);
             this.txPantalla.Name = "txPantalla";
             this.txPantalla.Size = new System.Drawing.Size(312, 37);
@@ -76,7 +77,7 @@
             // btC
             // 
             this.btC.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btC.Location = new System.Drawing.Point(374, 76);
+            this.btC.Location = new System.Drawing.Point(180, 76);
             this.btC.Margin = new System.Windows.Forms.Padding(6);
             this.btC.Name = "btC";
             this.btC.Size = new System.Drawing.Size(70, 75);
@@ -89,7 +90,7 @@
             // btBorrar
             // 
             this.btBorrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btBorrar.Location = new System.Drawing.Point(456, 76);
+            this.btBorrar.Location = new System.Drawing.Point(262, 76);
             this.btBorrar.Margin = new System.Windows.Forms.Padding(6);
             this.btBorrar.Name = "btBorrar";
             this.btBorrar.Size = new System.Drawing.Size(70, 75);
@@ -101,7 +102,7 @@
             // bt9
             // 
             this.bt9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt9.Location = new System.Drawing.Point(374, 163);
+            this.bt9.Location = new System.Drawing.Point(180, 163);
             this.bt9.Margin = new System.Windows.Forms.Padding(6);
             this.bt9.Name = "bt9";
             this.bt9.Size = new System.Drawing.Size(70, 75);
@@ -114,7 +115,7 @@
             // bt8
             // 
             this.bt8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt8.Location = new System.Drawing.Point(292, 163);
+            this.bt8.Location = new System.Drawing.Point(98, 163);
             this.bt8.Margin = new System.Windows.Forms.Padding(6);
             this.bt8.Name = "bt8";
             this.bt8.Size = new System.Drawing.Size(70, 75);
@@ -127,7 +128,7 @@
             // bt7
             // 
             this.bt7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt7.Location = new System.Drawing.Point(210, 163);
+            this.bt7.Location = new System.Drawing.Point(16, 163);
             this.bt7.Margin = new System.Windows.Forms.Padding(6);
             this.bt7.Name = "bt7";
             this.bt7.Size = new System.Drawing.Size(70, 75);
@@ -140,7 +141,7 @@
             // bt6
             // 
             this.bt6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt6.Location = new System.Drawing.Point(374, 250);
+            this.bt6.Location = new System.Drawing.Point(180, 250);
             this.bt6.Margin = new System.Windows.Forms.Padding(6);
             this.bt6.Name = "bt6";
             this.bt6.Size = new System.Drawing.Size(70, 75);
@@ -153,7 +154,7 @@
             // bt5
             // 
             this.bt5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt5.Location = new System.Drawing.Point(292, 250);
+            this.bt5.Location = new System.Drawing.Point(98, 250);
             this.bt5.Margin = new System.Windows.Forms.Padding(6);
             this.bt5.Name = "bt5";
             this.bt5.Size = new System.Drawing.Size(70, 75);
@@ -166,7 +167,7 @@
             // bt4
             // 
             this.bt4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt4.Location = new System.Drawing.Point(210, 250);
+            this.bt4.Location = new System.Drawing.Point(16, 250);
             this.bt4.Margin = new System.Windows.Forms.Padding(6);
             this.bt4.Name = "bt4";
             this.bt4.Size = new System.Drawing.Size(70, 75);
@@ -179,7 +180,7 @@
             // bt3
             // 
             this.bt3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt3.Location = new System.Drawing.Point(374, 337);
+            this.bt3.Location = new System.Drawing.Point(180, 337);
             this.bt3.Margin = new System.Windows.Forms.Padding(6);
             this.bt3.Name = "bt3";
             this.bt3.Size = new System.Drawing.Size(70, 75);
@@ -192,7 +193,7 @@
             // bt2
             // 
             this.bt2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt2.Location = new System.Drawing.Point(292, 337);
+            this.bt2.Location = new System.Drawing.Point(98, 337);
             this.bt2.Margin = new System.Windows.Forms.Padding(6);
             this.bt2.Name = "bt2";
             this.bt2.Size = new System.Drawing.Size(70, 75);
@@ -205,7 +206,7 @@
             // bt1
             // 
             this.bt1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt1.Location = new System.Drawing.Point(210, 337);
+            this.bt1.Location = new System.Drawing.Point(16, 337);
             this.bt1.Margin = new System.Windows.Forms.Padding(6);
             this.bt1.Name = "bt1";
             this.bt1.Size = new System.Drawing.Size(70, 75);
@@ -218,7 +219,7 @@
             // bt0
             // 
             this.bt0.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt0.Location = new System.Drawing.Point(292, 424);
+            this.bt0.Location = new System.Drawing.Point(98, 424);
             this.bt0.Margin = new System.Windows.Forms.Padding(6);
             this.bt0.Name = "bt0";
             this.bt0.Size = new System.Drawing.Size(70, 75);
@@ -231,7 +232,7 @@
             // btDividir
             // 
             this.btDividir.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btDividir.Location = new System.Drawing.Point(456, 163);
+            this.btDividir.Location = new System.Drawing.Point(262, 163);
             this.btDividir.Margin = new System.Windows.Forms.Padding(6);
             this.btDividir.Name = "btDividir";
             this.btDividir.Size = new System.Drawing.Size(70, 75);
@@ -244,7 +245,7 @@
             // btMultiplicar
             // 
             this.btMultiplicar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btMultiplicar.Location = new System.Drawing.Point(456, 250);
+            this.btMultiplicar.Location = new System.Drawing.Point(262, 250);
             this.btMultiplicar.Margin = new System.Windows.Forms.Padding(6);
             this.btMultiplicar.Name = "btMultiplicar";
             this.btMultiplicar.Size = new System.Drawing.Size(70, 75);
@@ -257,7 +258,7 @@
             // btMes
             // 
             this.btMes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btMes.Location = new System.Drawing.Point(456, 424);
+            this.btMes.Location = new System.Drawing.Point(262, 424);
             this.btMes.Margin = new System.Windows.Forms.Padding(6);
             this.btMes.Name = "btMes";
             this.btMes.Size = new System.Drawing.Size(70, 75);
@@ -270,7 +271,7 @@
             // btRestar
             // 
             this.btRestar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btRestar.Location = new System.Drawing.Point(456, 337);
+            this.btRestar.Location = new System.Drawing.Point(262, 337);
             this.btRestar.Margin = new System.Windows.Forms.Padding(6);
             this.btRestar.Name = "btRestar";
             this.btRestar.Size = new System.Drawing.Size(70, 75);
@@ -283,7 +284,7 @@
             // btComa
             // 
             this.btComa.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btComa.Location = new System.Drawing.Point(210, 424);
+            this.btComa.Location = new System.Drawing.Point(16, 424);
             this.btComa.Margin = new System.Windows.Forms.Padding(6);
             this.btComa.Name = "btComa";
             this.btComa.Size = new System.Drawing.Size(70, 75);
@@ -296,7 +297,7 @@
             // btIgual
             // 
             this.btIgual.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btIgual.Location = new System.Drawing.Point(374, 424);
+            this.btIgual.Location = new System.Drawing.Point(180, 424);
             this.btIgual.Margin = new System.Windows.Forms.Padding(6);
             this.btIgual.Name = "btIgual";
             this.btIgual.Size = new System.Drawing.Size(70, 75);
@@ -309,7 +310,7 @@
             // btCanviSigne
             // 
             this.btCanviSigne.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btCanviSigne.Location = new System.Drawing.Point(292, 76);
+            this.btCanviSigne.Location = new System.Drawing.Point(98, 76);
             this.btCanviSigne.Margin = new System.Windows.Forms.Padding(6);
             this.btCanviSigne.Name = "btCanviSigne";
             this.btCanviSigne.Size = new System.Drawing.Size(70, 75);
@@ -319,11 +320,22 @@
             this.btCanviSigne.UseVisualStyleBackColor = true;
             this.btCanviSigne.Click += new System.EventHandler(this.btCanviSigne_Click);
             // 
+            // txHistorial
+            // 
+            this.txHistorial.Location = new System.Drawing.Point(344, 26);
+            this.txHistorial.Margin = new System.Windows.Forms.Padding(6);
+            this.txHistorial.Multiline = true;
+            this.txHistorial.Name = "txHistorial";
+            this.txHistorial.Size = new System.Drawing.Size(312, 473);
+            this.txHistorial.TabIndex = 25;
+            this.txHistorial.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(682, 633);
+            this.Controls.Add(this.txHistorial);
             this.Controls.Add(this.btCanviSigne);
             this.Controls.Add(this.btIgual);
             this.Controls.Add(this.btComa);
@@ -379,6 +391,7 @@
         private System.Windows.Forms.Button btComa;
         private System.Windows.Forms.Button btIgual;
         private System.Windows.Forms.Button btCanviSigne;
+        private System.Windows.Forms.TextBox txHistorial;
     }
 }
 

@@ -436,34 +436,56 @@ namespace Calculadora
 
         private void btIgual_Click(object sender, EventArgs e)
         {
+
             this.ActiveControl = null;
-            if (simbol == "+")
+            //if (simbol == "+")
+            //{
+            //    resultatActual = resultatActual + double.Parse(valor);
+            //    valor = "";
+            //}
+            //else if (simbol == "-")
+            //{
+            //    resultatActual = resultatActual - double.Parse(valor);
+            //    valor = "";
+            //}
+            //else if (simbol == "x")
+            //{
+            //    resultatActual = resultatActual * double.Parse(valor);
+            //    valor = "";
+            //}
+            //else if (simbol == "/")
+            //{
+            //    resultatActual = resultatActual / double.Parse(valor);
+            //    valor = "";
+            //}
+            //else
+            //{
+            //    resultatActual = double.Parse(valor);
+            //    valor = "";
+            //}
+            //simbol = "";
+            //txPantalla.Text = txPantalla.Text + "=" + resultatActual;
+
+            try
             {
-                resultatActual = resultatActual + double.Parse(valor);
-                valor = "";
+                // Llegeix el contingut del TextBox
+                string expressio = txPantalla.Text;
+
+                // Substitueix el símbol "x" per "*" per a la multiplicació
+                expressio = expressio.Replace("x", "*");
+
+                // Utilitza DataTable per calcular l'expressió
+                var resultat = new System.Data.DataTable().Compute(expressio, null);
+
+                // Mostra el resultat al TextBox
+                txHistorial.Text = txHistorial.Text + expressio + "=" + resultat.ToString() + Environment.NewLine;
+                txPantalla.Text = resultat.ToString();
             }
-            else if (simbol == "-")
+            catch (Exception ex)
             {
-                resultatActual = resultatActual - double.Parse(valor);
-                valor = "";
+                // En cas d'error (per exemple, una expressió invàlida), mostra un missatge
+                MessageBox.Show("Error al calcular l'expressió: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (simbol == "x")
-            {
-                resultatActual = resultatActual * double.Parse(valor);
-                valor = "";
-            }
-            else if (simbol == "/")
-            {
-                resultatActual = resultatActual / double.Parse(valor);
-                valor = "";
-            }
-            else
-            {
-                resultatActual = double.Parse(valor);
-                valor = "";
-            }
-            simbol = "";
-            txPantalla.Text = txPantalla.Text + "=" + resultatActual;
         }
    
         private void Form1_KeyDown(object sender, KeyEventArgs e)
