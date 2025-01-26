@@ -277,6 +277,14 @@ namespace Calculadora
             {
                 try
                 {
+                    // Substitueix el símbol "x" per "*" per a la multiplicació
+                    expressio = expressio.Replace("x", "*");
+
+                    // Substitueix les comes per punts per gestionar nombres decimals
+                    expressio = expressio.Replace(",", ".");
+
+                    var resultat = new System.Data.DataTable().Compute(expressio, null);
+
                     // Divideix el text en parts separades per operadors matemàtics
                     char[ ] operadors = { '+', '-', '*', '/', 'x' };
                     string[ ] parts = expressio.Split(operadors);
@@ -311,7 +319,7 @@ namespace Calculadora
                         signe = "-";
 
                         // Substitueix l'últim valor al TextBox
-                        expressio = signe + ultimValor;
+                        expressio = signe + ultimValor.Replace(".", ",");
                     }
                     else
                     {
@@ -331,7 +339,7 @@ namespace Calculadora
 
 
                         // Substitueix l'últim valor al TextBox
-                        expressio = expressio.Substring(0, posicioUltimValor - 1) + signe + ultimValor;
+                        expressio = expressio.Substring(0, posicioUltimValor - 1).Replace(".", ",") + signe + ultimValor.Replace(".", ",");
                     }
                     txPantalla.Text = expressio;
                 }
@@ -352,6 +360,8 @@ namespace Calculadora
             string signe;
             int countExp = 0;
             int countUltVal = 0;
+            int cent = 100;
+            double numDividit;
 
             // Comprova si el TextBox està buit
             if (expressio == "")
@@ -362,6 +372,14 @@ namespace Calculadora
             {
                 try
                 {
+                    // Substitueix el símbol "x" per "*" per a la multiplicació
+                    expressio = expressio.Replace("x", "*");
+
+                    // Substitueix les comes per punts per gestionar nombres decimals
+                    expressio = expressio.Replace(",", ".");
+
+                    var resultat = new System.Data.DataTable().Compute(expressio, null);
+
                     // Divideix el text en parts separades per operadors matemàtics
                     char[ ] operadors = { '+', '-', '*', '/', 'x' };
                     string[ ] parts = expressio.Split(operadors);
@@ -369,61 +387,24 @@ namespace Calculadora
                     // Obté l'última part (últim número)
                     string ultimValor = parts[ parts.Length - 1 ];
 
-                    // Comprova si l'últim valor és vàlid
-                    if (string.IsNullOrWhiteSpace(ultimValor))
-                    {
-                        MessageBox.Show("No s'ha trobat cap número vàlid per canviar el signe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
+
+                    // Substitueix les comes per punts per gestionar nombres decimals
+                    ultimValor = ultimValor.Replace(".", ",");
+
+                    // Divideix l'últim número per 100
+                    numDividit = (double.Parse(ultimValor) / cent);
 
                     // Identifica la posició de l'últim número al text original
                     int posicioUltimValor = expressio.LastIndexOf(ultimValor);
 
-                    for (int i = 0; i < expressio.Length; i++)
-                    {
-                        // Comprova si el caràcter actual és una lletra
-                        countExp++;
-                    }
-
-                    for (int i = 0; i < ultimValor.Length; i++)
-                    {
-                        // Comprova si el caràcter actual és una lletra
-                        countUltVal++;
-                    }
-
-                    if (countExp == countUltVal)
-                    {
-                        signe = "-";
-
-                        // Substitueix l'últim valor al TextBox
-                        expressio = signe + ultimValor;
-                    }
-                    else
-                    {
-                        signe = expressio[ posicioUltimValor - 1 ].ToString(); // Accedeix al caràcter de la posició 3 (quart caràcter)
-
-                        // Canvia el signe del número
-                        if (signe == "-")
-                        {
-                            // Si és negatiu, elimina el signe menys
-                            signe = "+";
-                        }
-                        else if (signe == "+")
-                        {
-                            // Si és negatiu, elimina el signe menys
-                            signe = "-";
-                        }
-
-
-                        // Substitueix l'últim valor al TextBox
-                        expressio = expressio.Substring(0, posicioUltimValor - 1) + signe + ultimValor;
-                    }
+                    // Substitueix l'últim número al TextBox
+                    expressio = expressio.Substring(0, posicioUltimValor).Replace(".", ",") + numDividit.ToString().Replace(".", ",");
                     txPantalla.Text = expressio;
                 }
                 catch (Exception ex)
                 {
                     // En cas d'error, mostra un missatge informatiu
-                    MessageBox.Show("Error al canviar el signe: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error al dividir l'últim número per 100: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
