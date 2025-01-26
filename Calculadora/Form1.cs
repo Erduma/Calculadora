@@ -15,7 +15,7 @@ namespace Calculadora
     {
         public Form1()
         {
-            InitializeComponent(); 
+            InitializeComponent();
             this.KeyPreview = true; // Permet que el formulari gestioni les tecles abans dels controls
             this.KeyPress += new KeyPressEventHandler(Form1_KeyPress);
         }
@@ -140,7 +140,7 @@ namespace Calculadora
             //TECLAT SIMBOLS
             else if (e.KeyChar == '+')
             {
-                txPantalla.Text = txPantalla.Text + "+";                
+                txPantalla.Text = txPantalla.Text + "+";
             }
             else if (e.KeyChar == '-')
             {
@@ -225,7 +225,7 @@ namespace Calculadora
                 MessageBox.Show("Error al calcular l'expressió: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-   
+
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             // doubleerceptar la tecla Enter per evitar l'execució automàtica del botó amb focus
@@ -265,6 +265,8 @@ namespace Calculadora
 
             string expressio = txPantalla.Text;
             string signe;
+            int countExp = 0;
+            int countUltVal = 0;
 
             // Comprova si el TextBox està buit
             if (expressio == "")
@@ -292,22 +294,45 @@ namespace Calculadora
                     // Identifica la posició de l'últim número al text original
                     int posicioUltimValor = expressio.LastIndexOf(ultimValor);
 
-                    signe = expressio[ posicioUltimValor - 1 ].ToString(); // Accedeix al caràcter de la posició 3 (quart caràcter)
-
-                    // Canvia el signe del número
-                    if (signe == "-")
+                    for (int i = 0; i < expressio.Length; i++)
                     {
-                        // Si és negatiu, elimina el signe menys
-                        signe = "+";
+                        // Comprova si el caràcter actual és una lletra
+                        countExp++;
                     }
-                    else if(signe == "+")
+
+                    for (int i = 0; i < ultimValor.Length; i++)
                     {
-                        // Si és negatiu, elimina el signe menys
+                        // Comprova si el caràcter actual és una lletra
+                        countUltVal++;
+                    }
+
+                    if (countExp == countUltVal)
+                    {
                         signe = "-";
-                    }
 
-                    // Substitueix l'últim valor al TextBox
-                    expressio = expressio.Substring(0, posicioUltimValor-1) + signe + ultimValor;
+                        // Substitueix l'últim valor al TextBox
+                        expressio = signe + ultimValor;
+                    }
+                    else
+                    {
+                        signe = expressio[ posicioUltimValor - 1 ].ToString(); // Accedeix al caràcter de la posició 3 (quart caràcter)
+
+                        // Canvia el signe del número
+                        if (signe == "-")
+                        {
+                            // Si és negatiu, elimina el signe menys
+                            signe = "+";
+                        }
+                        else if (signe == "+")
+                        {
+                            // Si és negatiu, elimina el signe menys
+                            signe = "-";
+                        }
+
+
+                        // Substitueix l'últim valor al TextBox
+                        expressio = expressio.Substring(0, posicioUltimValor - 1) + signe + ultimValor;
+                    }
                     txPantalla.Text = expressio;
                 }
                 catch (Exception ex)
@@ -322,29 +347,85 @@ namespace Calculadora
         private void bt100_Click(object sender, EventArgs e)
         {
             this.ActiveControl = null;
-            //if (simbol == "+")
-            //{
-            //    resultatActual = resultatActual + double.Parse(valor);
-            //    valor = "";
-            //}
-            //else if (simbol == "-")
-            //{
-            //    resultatActual = resultatActual - double.Parse(valor);
-            //    valor = "";
-            //}
-            //else if (simbol == "x")
-            //{
-            //    resultatActual = resultatActual * double.Parse(valor);
-            //    valor = "";
-            //}
-            //else if (simbol == "/")
-            //{
-            //    resultatActual = resultatActual / double.Parse(valor);
-            //    valor = "";
-            //}
-            //simbol = "";
-            //resultatActual = resultatActual/100;
-            //txPantalla.Text = txPantalla.Text + "=" + resultatActual;
+
+            string expressio = txPantalla.Text;
+            string signe;
+            int countExp = 0;
+            int countUltVal = 0;
+
+            // Comprova si el TextBox està buit
+            if (expressio == "")
+            {
+                MessageBox.Show("Has de posar la operació");
+            }
+            else
+            {
+                try
+                {
+                    // Divideix el text en parts separades per operadors matemàtics
+                    char[ ] operadors = { '+', '-', '*', '/', 'x' };
+                    string[ ] parts = expressio.Split(operadors);
+
+                    // Obté l'última part (últim número)
+                    string ultimValor = parts[ parts.Length - 1 ];
+
+                    // Comprova si l'últim valor és vàlid
+                    if (string.IsNullOrWhiteSpace(ultimValor))
+                    {
+                        MessageBox.Show("No s'ha trobat cap número vàlid per canviar el signe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    // Identifica la posició de l'últim número al text original
+                    int posicioUltimValor = expressio.LastIndexOf(ultimValor);
+
+                    for (int i = 0; i < expressio.Length; i++)
+                    {
+                        // Comprova si el caràcter actual és una lletra
+                        countExp++;
+                    }
+
+                    for (int i = 0; i < ultimValor.Length; i++)
+                    {
+                        // Comprova si el caràcter actual és una lletra
+                        countUltVal++;
+                    }
+
+                    if (countExp == countUltVal)
+                    {
+                        signe = "-";
+
+                        // Substitueix l'últim valor al TextBox
+                        expressio = signe + ultimValor;
+                    }
+                    else
+                    {
+                        signe = expressio[ posicioUltimValor - 1 ].ToString(); // Accedeix al caràcter de la posició 3 (quart caràcter)
+
+                        // Canvia el signe del número
+                        if (signe == "-")
+                        {
+                            // Si és negatiu, elimina el signe menys
+                            signe = "+";
+                        }
+                        else if (signe == "+")
+                        {
+                            // Si és negatiu, elimina el signe menys
+                            signe = "-";
+                        }
+
+
+                        // Substitueix l'últim valor al TextBox
+                        expressio = expressio.Substring(0, posicioUltimValor - 1) + signe + ultimValor;
+                    }
+                    txPantalla.Text = expressio;
+                }
+                catch (Exception ex)
+                {
+                    // En cas d'error, mostra un missatge informatiu
+                    MessageBox.Show("Error al canviar el signe: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
