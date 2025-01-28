@@ -154,6 +154,8 @@ namespace Calculadora
             {
                 txPantalla.Text = txPantalla.Text + "/";
             }
+
+
         }
 
         //SIMBOLS
@@ -181,6 +183,10 @@ namespace Calculadora
             this.ActiveControl = null;
             txPantalla.Text = txPantalla.Text + "/";
         }
+
+
+
+
 
 
 
@@ -237,6 +243,11 @@ namespace Calculadora
                 // Opcional: pots afegir aquí el comportament personalitzat per a Enter
                 // Per exemple, executar el codi del botó igual
                 btIgual_Click(null, null);
+            }
+            else if (e.KeyCode == Keys.Back) // Comprova si la tecla és "Backspace"
+            {
+                e.SuppressKeyPress = true; // Evita que el TextBox processi la tecla per defecte
+                btBorrar_Click(null, null);
             }
         }
 
@@ -397,6 +408,11 @@ namespace Calculadora
                     // Identifica la posició de l'últim número al text original
                     int posicioUltimValor = expressio.LastIndexOf(ultimValor);
 
+                    if (posicioUltimValor <= 0)
+                    {
+                        posicioUltimValor = 0;
+                    }
+
                     // Substitueix l'últim número al TextBox
                     expressio = expressio.Substring(0, posicioUltimValor).Replace(".", ",") + numDividit.ToString().Replace(".", ",");
                     txPantalla.Text = expressio;
@@ -406,6 +422,23 @@ namespace Calculadora
                     // En cas d'error, mostra un missatge informatiu
                     MessageBox.Show("Error al dividir l'últim número per 100: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void btBorrar_Click(object sender, EventArgs e)
+        {
+            this.ActiveControl = null;
+
+            // Comprova si el TextBox té contingut
+            if (!string.IsNullOrEmpty(txPantalla.Text))
+            {
+                // Elimina l'últim caràcter
+                txPantalla.Text = txPantalla.Text.Substring(0, txPantalla.Text.Length - 1);
+            }
+            else
+            {
+                // Mostra un missatge si el TextBox està buit
+                MessageBox.Show("No hi ha res a esborrar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

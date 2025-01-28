@@ -98,6 +98,7 @@
             this.btBorrar.TabStop = false;
             this.btBorrar.Text = "<<";
             this.btBorrar.UseVisualStyleBackColor = true;
+            this.btBorrar.Click += new System.EventHandler(this.btBorrar_Click);
             // 
             // bt9
             // 
