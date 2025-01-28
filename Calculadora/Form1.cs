@@ -441,5 +441,39 @@ namespace Calculadora
                 MessageBox.Show("No hi ha res a esborrar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void btXElevataX_Click(object sender, EventArgs e)
+        {
+            this.ActiveControl = null;
+
+            try
+            {
+                string expressio = txPantalla.Text;
+
+                // Verifica si el TextBox está buit
+                if (string.IsNullOrWhiteSpace(expressio))
+                {
+                    MessageBox.Show("Introdeix un número per calcular x^x.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (double.TryParse(expressio.Replace(",", "."), out double x))
+                {
+                    // Calcula x^x
+                    double resultado = Math.Pow(x, x);
+
+                    txPantalla.Text = resultado.ToString().Replace(".", ",");
+                }
+                else
+                {
+                    MessageBox.Show("El contingut no es un número válid.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Ensenya un missatge d'error si passa algún problema
+                MessageBox.Show("Error al calcular x^x: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
